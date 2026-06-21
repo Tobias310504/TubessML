@@ -44,6 +44,17 @@ def inject_custom_css():
             color: #17202a;
         }
 
+        .stApp p,
+        .stApp label,
+        .stApp h1,
+        .stApp h2,
+        .stApp h3,
+        .stApp h4,
+        .stApp h5,
+        .stApp h6 {
+            color: #17202a;
+        }
+
         .block-container {
             max-width: 1180px;
             padding-top: 1.4rem;
@@ -56,6 +67,32 @@ def inject_custom_css():
 
         [data-testid="stSidebar"] * {
             color: #f8fafc;
+        }
+
+        div[data-testid="stWidgetLabel"] p,
+        div[data-testid="stWidgetLabel"] label,
+        div[data-testid="stCheckbox"] label p {
+            color: #334155 !important;
+        }
+
+        [data-testid="stSidebar"] div[data-testid="stWidgetLabel"] p,
+        [data-testid="stSidebar"] div[data-testid="stWidgetLabel"] label,
+        [data-testid="stSidebar"] div[data-testid="stCheckbox"] label p {
+            color: #f8fafc !important;
+        }
+
+        div[data-baseweb="select"] > div,
+        div[data-testid="stNumberInput"] input,
+        div[data-testid="stTextInput"] input {
+            background-color: #ffffff !important;
+            color: #17202a !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        div[data-baseweb="select"] span,
+        div[data-testid="stNumberInput"] input,
+        div[data-testid="stTextInput"] input {
+            color: #17202a !important;
         }
 
         .app-header {
@@ -72,6 +109,7 @@ def inject_custom_css():
             line-height: 1.15;
             margin: 0 0 8px 0;
             letter-spacing: 0;
+            color: #ffffff;
         }
 
         .app-header p {
@@ -681,7 +719,15 @@ elif page == "Dataset & EDA":
     )
 
     category_counts = clean_df[category_column].value_counts().head(15)
-    st.bar_chart(category_counts)
+    fig, ax = plt.subplots(figsize=(8, 4.5))
+    ax.bar(category_counts.index.astype(str), category_counts.values, color="#0f766e")
+    ax.set_title(f"Distribusi {category_column}")
+    ax.set_xlabel(category_column)
+    ax.set_ylabel("Jumlah data")
+    ax.tick_params(axis="x", rotation=35)
+    ax.grid(axis="y", alpha=0.22)
+    fig.tight_layout()
+    st.pyplot(fig)
 
     st.subheader("Statistik Harga")
     st.dataframe(
