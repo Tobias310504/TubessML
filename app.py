@@ -66,7 +66,19 @@ def inject_custom_css():
         }
 
         [data-testid="stSidebar"] * {
-            color: #f8fafc;
+            color: #f8fafc !important;
+        }
+
+        [data-testid="stSidebar"] p,
+        [data-testid="stSidebar"] span,
+        [data-testid="stSidebar"] label,
+        [data-testid="stSidebar"] h1,
+        [data-testid="stSidebar"] h2,
+        [data-testid="stSidebar"] h3,
+        [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
+        [data-testid="stSidebar"] [role="radiogroup"] label p,
+        [data-testid="stSidebar"] [role="radiogroup"] label span {
+            color: #f8fafc !important;
         }
 
         div[data-testid="stWidgetLabel"] p,
@@ -138,7 +150,7 @@ def inject_custom_css():
         }
 
         .quick-nav-label {
-            color: #e8fff8;
+            color: #0f766e;
             font-size: 0.82rem;
             font-weight: 700;
             letter-spacing: 0.08em;
@@ -249,30 +261,54 @@ def inject_custom_css():
         .stButton > button {
             border-radius: 8px;
             background: #0f766e;
-            color: white;
+            color: #ffffff !important;
             border: 0;
             font-weight: 700;
         }
 
         .stButton > button:hover {
             background: #115e59;
-            color: white;
+            color: #ffffff !important;
             border: 0;
+        }
+
+        div[data-testid="stFormSubmitButton"] button {
+            border-radius: 8px;
+            background: #0f766e !important;
+            color: #ffffff !important;
+            border: 0 !important;
+            font-weight: 700;
+        }
+
+        div[data-testid="stFormSubmitButton"] button:hover {
+            background: #115e59 !important;
+            color: #ffffff !important;
+            border: 0 !important;
+        }
+
+        .stButton > button *,
+        div[data-testid="stFormSubmitButton"] button,
+        div[data-testid="stFormSubmitButton"] button * {
+            color: #ffffff !important;
         }
 
         .quick-nav-row .stButton > button {
             border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.34);
-            background: rgba(255,255,255,0.13);
-            color: #ffffff;
+            border: 1px solid #0f766e;
+            background: #0f766e;
+            color: #ffffff !important;
             box-shadow: none;
             min-height: 42px;
         }
 
         .quick-nav-row .stButton > button:hover {
-            background: rgba(255,255,255,0.24);
-            color: #ffffff;
-            border: 1px solid rgba(255,255,255,0.52);
+            background: #115e59;
+            color: #ffffff !important;
+            border: 1px solid #115e59;
+        }
+
+        .quick-nav-row .stButton > button * {
+            color: #ffffff !important;
         }
 
         div[data-testid="stAlert"] {
