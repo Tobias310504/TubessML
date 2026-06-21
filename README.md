@@ -9,7 +9,7 @@ Harga pada dataset ditampilkan sebagai **Indian Rupee (INR / ₹)** karena datas
 - `app.py`: kode utama web app
 - `requirements.txt`: daftar library yang dibutuhkan
 - `model/model_harga_mobil_ridge_log.pkl`: model hasil training
-- `data/Dataset_Raw.csv`: dataset untuk EDA dan pilihan input
+- `data/Dataset_carDeckho.csv`: dataset untuk EDA dan pilihan input
 
 ## Cara Menjalankan Lokal
 
